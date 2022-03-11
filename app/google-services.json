@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "912363462097",
+    "project_id": "weather-app-343520",
+    "storage_bucket": "weather-app-343520.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:912363462097:android:536849a3fbad60936654f0",
+        "android_client_info": {
+          "package_name": "com.simphiwe.weatherapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "912363462097-o8ld9kms1igsnjnsh9v9bmtjq33m411n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDTh0YIVdJ53_l1eveekmKFI_LdMHuB50k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "912363462097-o8ld9kms1igsnjnsh9v9bmtjq33m411n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,54 @@
+package com.simphiwe.weatherapp.viewmodel
+
+import android.util.Log
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.simphiwe.weatherapp.model.Weather
+import com.simphiwe.weatherapp.repository.WeatherRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.launch
+import javax.inject.Inject
+
+@HiltViewModel
+class WeatherViewModelSandton
+@Inject
+constructor(private val repository: WeatherRepository) : ViewModel() {
+
+    private val _response = MutableLiveData<Weather>()
+    val weatherResponseSandton: LiveData<Weather>
+        get() = _response
+
+
+    init {
+        getWeatherSandton()
+
+    }
+
+    private fun getWeatherSandton() = viewModelScope.launch {
+        repository.getWeatherSandton().let { response ->
+
+            if (response.isSuccessful) {
+                _response.postValue(response.body())
+            } else {
+                Log.d("tag", "getWeather Error: ${response.code()}")
+            }
+        }
+    }
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
