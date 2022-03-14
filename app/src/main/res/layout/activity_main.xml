@@ -26,6 +26,24 @@
             android:layout_marginBottom="20dp"
             />
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/latitudeTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" "
+                />
+            <TextView
+                android:id="@+id/longitudeTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" "
+                />
+        </LinearLayout>
+
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -102,11 +120,9 @@
         </androidx.cardview.widget.CardView>
 
 
-
-
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             app:cardBackgroundColor="#00BCD4"
             app:cardCornerRadius="20dp"
@@ -181,7 +197,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Momday"
+                    android:text="Monday"
                     android:textColor="@color/white"
                     android:layout_marginTop="80dp"
                     android:textSize="20sp" />
@@ -190,7 +206,7 @@
                     android:id="@+id/tvForecast3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="20dp"
+                    android:layout_marginEnd="65dp"
                     android:layout_marginTop="80dp"
                     android:layout_weight="1"
                     android:gravity="end"
@@ -198,11 +214,18 @@
                     android:textColor="@color/white"
                     android:textSize="20sp" />
 
+
+
             </LinearLayout>
         </androidx.cardview.widget.CardView>
-
-
-
-
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnMap"
+            android:text="VIEW MAP"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="@color/yellow"
+            />
     </LinearLayout>
+
 </ScrollView>

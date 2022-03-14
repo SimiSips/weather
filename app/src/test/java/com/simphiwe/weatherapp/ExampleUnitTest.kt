@@ -1,4 +1,4 @@
-package com.simphiwe.weatherapp
+package com.bersyte.weatherapp
 
 import org.junit.Test
 

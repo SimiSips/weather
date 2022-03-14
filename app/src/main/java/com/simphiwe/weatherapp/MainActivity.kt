@@ -33,28 +33,6 @@ import java.util.*
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
-    /*private fun isLocationPermissionGranted(): Boolean {
-        return if (ActivityCompat.checkSelfPermission(
-                this,
-                android.Manifest.permission.ACCESS_COARSE_LOCATION
-        ) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
-                this,
-                android.Manifest.permission.ACCESS_FINE_LOCATION
-        ) != PackageManager.PERMISSION_GRANTED
-        ) {
-            ActivityCompat.requestPermissions(
-                this,
-                arrayOf(
-                    android.Manifest.permission.ACCESS_FINE_LOCATION,
-                    android.Manifest.permission.ACCESS_COARSE_LOCATION
-                ),
-                ///requestCode
-            )
-            false
-        } else {
-            true
-        }
-    }*/
 
     private lateinit var binding: ActivityMainBinding
     val viewModel: WeatherViewModel by viewModels()
@@ -71,6 +49,12 @@ class MainActivity : AppCompatActivity() {
 
         geocoder = Geocoder(this, Locale.getDefault())
         val btn = findViewById<Button>(R.id.button5)
+        val btnMap = findViewById<Button>(R.id.btnMap)
+
+        btnMap.setOnClickListener {
+            val intent = Intent(this, MapsActivity::class.java)
+            startActivity(intent)
+        }
 
         val backBtn = findViewById<Button>(R.id.backBtn)
 
@@ -100,6 +84,7 @@ class MainActivity : AppCompatActivity() {
                 tvForecast2.text = "${forecast[1].temperature}/ ${forecast[1].wind}"
                 tvForecast3.text = "${forecast[2].temperature}/ ${forecast[2].wind}"
 
+
             }
 
         }
@@ -117,6 +102,10 @@ class MainActivity : AppCompatActivity() {
 
         lastLocation.addOnSuccessListener {
             if (it != null) {
+                binding.apply {
+                    latitudeTxt.text = it.latitude.toString()
+                    longitudeTxt.text = it.longitude.toString()
+                }
 
                 Log.d(TAG, "getLastLocation: Latitude is ${it.latitude}")
                 Log.d(TAG, "getLastLocation: Longitude is ${it.longitude}")
@@ -128,7 +117,6 @@ class MainActivity : AppCompatActivity() {
 
             }
         }
-
         lastLocation.addOnFailureListener {
             Log.d(TAG, "getLastLocation: Location cannot be traced")
         }
