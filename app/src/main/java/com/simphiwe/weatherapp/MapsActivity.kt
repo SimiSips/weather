@@ -63,11 +63,21 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         }
     }
     override fun onMapReady(googleMap: GoogleMap) {
-        val latLng = LatLng(currentLocation.latitude, currentLocation.longitude)
-        val markerOptions = MarkerOptions().position(latLng).title("I am here!")
-        googleMap.animateCamera(CameraUpdateFactory.newLatLng(latLng))
-        googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 5f))
-        googleMap.addMarker(markerOptions)
+        if(!::currentLocation.isInitialized) {
+            val latLng = LatLng(currentLocation.latitude, currentLocation.longitude)
+            val markerOptions = MarkerOptions().position(latLng).title("I am here!")
+            googleMap.animateCamera(CameraUpdateFactory.newLatLng(latLng))
+            googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 5f))
+            googleMap.addMarker(markerOptions)
+        } else {
+            Toast.makeText(applicationContext, "Maps not opening", Toast.LENGTH_LONG).show()
+            val latLng = LatLng(-34.0, 151.0)
+            val markerOptions = MarkerOptions().position(latLng).title("I am here!")
+            googleMap.animateCamera(CameraUpdateFactory.newLatLng(latLng))
+            googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 5f))
+            googleMap.addMarker(markerOptions)
+        }
+
     }
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String?>,
                                             grantResults: IntArray) {
