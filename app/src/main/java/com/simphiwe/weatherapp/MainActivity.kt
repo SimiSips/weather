@@ -75,6 +75,11 @@ class MainActivity : AppCompatActivity() {
                 btn.setOnClickListener {
                     tvDescription.visibility = View.VISIBLE
                     cardview.visibility = View.VISIBLE
+                    if (weather.description == "Clear"){
+                        sunny.visibility = View.VISIBLE
+                    } else {
+                        cloudy.visibility = View.VISIBLE
+                    }
                 }
 
                 tvWind.text = weather.wind
@@ -111,6 +116,9 @@ class MainActivity : AppCompatActivity() {
                 Log.d(TAG, "getLastLocation: Longitude is ${it.longitude}")
 
                 val address = geocoder.getFromLocation(it.latitude, it.longitude, 1)
+                binding.apply {
+                    addressStr.text = address[0].getAddressLine(0) + address[0].locality
+                }
 
                 Log.d(TAG, "getLastLocation: ${address[0].getAddressLine(0)}")
                 Log.d(TAG, "getLastLocation: ${address[0].locality}")
