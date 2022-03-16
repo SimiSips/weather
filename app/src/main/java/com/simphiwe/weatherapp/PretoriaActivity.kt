@@ -92,6 +92,20 @@ class PretoriaActivity : AppCompatActivity() {
                 btn.setOnClickListener {
                     tvDescription.visibility = View.VISIBLE
                     cardview.visibility = View.VISIBLE
+                    when (weather.description) {
+                        "Clear" -> {
+                            sunny.visibility = View.VISIBLE
+                        }
+                        "Cloudy" -> {
+                            cloudy.visibility = View.VISIBLE
+                        }
+                        "Sunny" -> {
+                            sunny.visibility = View.VISIBLE
+                        }
+                        "Partly Cloudy" -> {
+                            partlyCloudy.visibility = View.VISIBLE
+                        }
+                    }
                 }
 
                 tvWind.text = weather.wind
@@ -118,11 +132,18 @@ class PretoriaActivity : AppCompatActivity() {
 
         lastLocation.addOnSuccessListener {
             if (it != null) {
+                binding.apply {
+                    latitudeTxt.text = it.latitude.toString()
+                    longitudeTxt.text = it.longitude.toString()
+                }
 
                 Log.d(TAG, "getLastLocation: Latitude is ${it.latitude}")
                 Log.d(TAG, "getLastLocation: Longitude is ${it.longitude}")
 
                 val address = geocoder.getFromLocation(it.latitude, it.longitude, 1)
+                binding.apply {
+                    addressStr.text = address[0].getAddressLine(0) + address[0].locality
+                }
 
                 Log.d(TAG, "getLastLocation: ${address[0].getAddressLine(0)}")
                 Log.d(TAG, "getLastLocation: ${address[0].locality}")

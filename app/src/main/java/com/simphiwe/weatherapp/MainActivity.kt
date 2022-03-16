@@ -75,10 +75,19 @@ class MainActivity : AppCompatActivity() {
                 btn.setOnClickListener {
                     tvDescription.visibility = View.VISIBLE
                     cardview.visibility = View.VISIBLE
-                    if (weather.description == "Clear"){
-                        sunny.visibility = View.VISIBLE
-                    } else {
-                        cloudy.visibility = View.VISIBLE
+                    when (weather.description) {
+                        "Clear" -> {
+                            sunny.visibility = View.VISIBLE
+                        }
+                        "Cloudy" -> {
+                            cloudy.visibility = View.VISIBLE
+                        }
+                        "Sunny" -> {
+                            sunny.visibility = View.VISIBLE
+                        }
+                        "Partly Cloudy" -> {
+                            partlyCloudy.visibility = View.VISIBLE
+                        }
                     }
                 }
 

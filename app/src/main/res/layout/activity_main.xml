@@ -138,6 +138,14 @@
                 android:src="@drawable/cloudy"
                 android:visibility="invisible"
                 />
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="80dp"
+                android:contentDescription="partly cloudy"
+                android:id="@+id/partlyCloudy"
+                android:src="@drawable/partlycloudy"
+                android:visibility="invisible"
+                />
 
 
             <TextView

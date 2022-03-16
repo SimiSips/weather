@@ -26,6 +26,40 @@
             android:layout_marginBottom="20dp"
             />
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/latitudeTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:text="Latitude"
+                />
+            <TextView
+                android:id="@+id/longitudeTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:text="Longitude"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/addressStr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Address"
+                android:textSize="20dp"
+                />
+        </LinearLayout>
+
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -73,7 +107,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/cardview"
-            android:visibility="invisible"
+            android:visibility="visible"
             app:cardBackgroundColor="@color/yellow"
             app:cardCornerRadius="20dp"
             app:cardElevation="8dp"
@@ -88,6 +122,30 @@
                 android:text="Cloudy"
                 android:textColor="@color/white"
                 android:textSize="25sp" />
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="80dp"
+                android:contentDescription="sunny"
+                android:id="@+id/sunny"
+                android:src="@drawable/sunny"
+                android:visibility="invisible"
+                />
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="80dp"
+                android:contentDescription="cloudy"
+                android:id="@+id/cloudy"
+                android:src="@drawable/cloudy"
+                android:visibility="invisible"
+                />
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="80dp"
+                android:contentDescription="partly cloudy"
+                android:id="@+id/partlyCloudy"
+                android:src="@drawable/partlycloudy"
+                android:visibility="invisible"
+                />
 
             <TextView
                 android:id="@+id/tvWind"
